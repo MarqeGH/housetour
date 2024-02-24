@@ -1,0 +1,151 @@
+{
+    "name": "Player Controls",
+    "maps": [
+        {
+            "name": "Flying",
+            "id": "2508cb6c-8431-404c-b104-15b04e02ef15",
+            "actions": [
+                {
+                    "name": "Flying",
+                    "type": "Value",
+                    "id": "c5213712-2f02-4142-8b7a-a4f85e4c6c30",
+                    "expectedControlType": "Axis",
+                    "processors": "AxisDeadzone",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Shooting",
+                    "type": "Button",
+                    "id": "59495011-c3e7-4024-b9d5-abb82e5ed4c5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Barrel Roll",
+                    "type": "Button",
+                    "id": "d327fdc7-3f2a-40d7-9b68-dd71b62d2a85",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "WASD",
+                    "id": "01cb6306-b095-447a-8203-c5a5694667a9",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Flying",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "5a564795-25ad-43db-8b53-46bea18f9f27",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Main Control Scheme",
+                    "action": "Flying",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "1f33fd34-c997-4f36-96bf-df92f2fe20a1",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Main Control Scheme",
+                    "action": "Flying",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "d9f89f95-4215-4ae2-856b-dc3397c13990",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Main Control Scheme",
+                    "action": "Flying",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "6049622b-695d-402a-8e81-e2d08eaeaec0",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Main Control Scheme",
+                    "action": "Flying",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "3cb5977d-12b0-41e4-b6ce-4d8750b7a2b9",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Main Control Scheme",
+                    "action": "Flying",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "42b9c59e-afbb-41f6-b536-a9dda9aa3203",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Main Control Scheme",
+                    "action": "Shooting",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3f266cae-9871-4e4b-9dff-dce6deb8e1f2",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Main Control Scheme",
+                    "action": "Barrel Roll",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Main Control Scheme",
+            "bindingGroup": "Main Control Scheme",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": true,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": true,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<XInputController>",
+                    "isOptional": true,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
