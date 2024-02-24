@@ -16,6 +16,5 @@ public class Movement : MonoBehaviour
     void Update()
     {
         transform.rotation = Quaternion.LookRotation(transform.position - crosshairs.transform.position);
-        
     }
 }
