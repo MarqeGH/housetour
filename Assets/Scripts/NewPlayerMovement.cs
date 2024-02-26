@@ -7,12 +7,20 @@ public class NewPlayerMovement : MonoBehaviour
 {
 
     [SerializeField] InputAction movement;
+    [SerializeField] float clampX = 16f;
+    [SerializeField] float clampY = 12f;
     [SerializeField] float moveSpeed;
+    [SerializeField] float rotationFactor = 2f;
+    [SerializeField] float controlRotationFactor = 30f;
     float xRestraint;
     float yRestraint;
     Vector3 shipPos;
     float xThrow;
     float yThrow;
+    float pitch;
+    float yaw;
+    float roll;
+
 
     // public int interpolationFramesCount = 45;
     // Vector3 xyThrow;
@@ -36,27 +44,41 @@ public class NewPlayerMovement : MonoBehaviour
     }
 
     void FixedUpdate() {
-        ShipControl();
-        IncrementPosition();
+        ShipTranslation();
+        ShipRotation();
     }
+
     void OnDisable(){
         movement.Disable();
     }
-
-
-
-    public void ShipControl()
+    void ShipTranslation()
     {
         // float interpolationRatio = (float) elapsedFrames / interpolationFramesCount;
-        xRestraint = Mathf.Clamp(xRestraint, -16f, 16f);
-        yRestraint = Mathf.Clamp(yRestraint, -12f, 12f);
+        xRestraint = Mathf.Clamp(xRestraint, -clampX, clampX);
+        yRestraint = Mathf.Clamp(yRestraint, -clampY, clampY);
         shipPos = new Vector3(xRestraint, yRestraint, 0f);
         // shipPos = Vector3.Lerp(xyThrow.up, xyThrow.x, interpolationRatio);
-    }
-    public void IncrementPosition()
-    {
         xRestraint += xThrow*moveSpeed*Time.deltaTime;
         yRestraint += yThrow*moveSpeed*Time.deltaTime;
         transform.localPosition = shipPos;
+    }
+
+    void ShipRotation()
+    {
+        float pitchByTransform = transform.localPosition.y * -rotationFactor/2;
+        float pitchByControl = yThrow*controlRotationFactor*2;
+
+        float rollByTransform = transform.localPosition.x * -rotationFactor;
+        float rollByControl = xThrow*controlRotationFactor*2;
+        
+        float yawByTransform = transform.localPosition.x * rotationFactor;
+        float yawByControl = xThrow*-controlRotationFactor;
+
+
+        pitch = pitchByTransform + pitchByControl;
+        roll = rollByTransform + rollByControl;
+        yaw = yawByTransform + yawByControl;
+
+        transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
 }
