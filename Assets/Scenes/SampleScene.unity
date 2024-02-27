@@ -2650,13 +2650,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 443301095}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.050183915, y: -0.042381793, z: 0.0021314924, w: 0.9978381}
-  m_LocalPosition: {x: 57.047943, y: 13.4, z: 19.836014}
+  m_LocalRotation: {x: 0.059635796, y: -0.00006832554, z: -0.0011434772, w: 0.99821955}
+  m_LocalPosition: {x: 0.011884451, y: 5.1875067, z: -9.904022}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 505379921}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1970374592}
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!43 &462182927
 Mesh:
@@ -6227,7 +6227,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3974329727022250997, guid: 719cc5023624a4ef38f27d3c82f6656b, type: 3}
   m_PrefabInstance: {fileID: 2439290745897664788}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &878572127
+--- !u!114 &878572133
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6236,67 +6236,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 878572121}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20b67ff8acce4455bb293602882c48f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c67db19deadf4f87894721297cf6bde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement:
-    m_Name: Movement
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 9675218a-f459-46e8-9e99-06161d1231ad
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 2D Vector
-      m_Id: f423318d-6825-48f1-8b95-eeae7bdb0089
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 4
-    - m_Name: up
-      m_Id: f7671113-e468-47ee-9911-f249b8ae9139
-      m_Path: <Keyboard>/w
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    - m_Name: down
-      m_Id: 44c9ece8-ce1e-4967-9f93-937f7094272d
-      m_Path: <Keyboard>/s
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    - m_Name: left
-      m_Id: 1989c96f-1c7c-48f8-ae4c-8710ab2293af
-      m_Path: <Keyboard>/a
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    - m_Name: right
-      m_Id: f998fcdd-83b5-4d3a-9364-35aea927a8af
-      m_Path: <Keyboard>/d
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    - m_Name: 
-      m_Id: 82a82516-602d-42eb-bc15-2eaf6171ed46
-      m_Path: <Gamepad>/leftStick
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 0
-    m_Flags: 0
-  moveSpeed: 30
+  playerHitPoints: 5
+  fighterHitPoints: 3
 --- !u!1 &891433655
 GameObject:
   m_ObjectHideFlags: 0
@@ -7882,12 +7826,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.059635796, y: -0.00006832554, z: -0.0011434772, w: 0.99821955}
-  m_LocalPosition: {x: 0.011884451, y: 5.1875067, z: -9.904022}
+  m_LocalRotation: {x: 0.05018392, y: -0.0423818, z: 0.0021314924, w: 0.99783814}
+  m_LocalPosition: {x: 57.047943, y: 13.4, z: 19.836014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1970374592}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
@@ -14160,8 +14104,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 963194228}
   - {fileID: 474470060}
+  - {fileID: 443301097}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1970374593
@@ -16229,7 +16173,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3974329727022250997, guid: 719cc5023624a4ef38f27d3c82f6656b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 878572127}
+      addedObject: {fileID: 878572133}
   m_SourcePrefab: {fileID: 100100000, guid: 719cc5023624a4ef38f27d3c82f6656b, type: 3}
 --- !u!1001 &2829677952637331531
 PrefabInstance:
@@ -16575,6 +16519,6 @@ SceneRoots:
   - {fileID: 1901189193}
   - {fileID: 140106388}
   - {fileID: 1091163876}
-  - {fileID: 443301097}
   - {fileID: 2043958923}
   - {fileID: 878486707}
+  - {fileID: 963194228}
