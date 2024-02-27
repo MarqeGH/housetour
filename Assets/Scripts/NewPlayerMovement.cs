@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,10 @@ public class NewPlayerMovement : MonoBehaviour
 {
 
     [SerializeField] InputAction movement;
-    [SerializeField] float clampX = 16f;
-    [SerializeField] float clampY = 12f;
+    [SerializeField] float posClampX = 16f;
+    [SerializeField] float posClampY = 12f;
+    [SerializeField] float pitchMinMax = 45f;
+    [SerializeField] float rollMinMax = 90f;
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationFactor = 2f;
     [SerializeField] float controlRotationFactor = 30f;
@@ -54,8 +57,9 @@ public class NewPlayerMovement : MonoBehaviour
     void ShipTranslation()
     {
         // float interpolationRatio = (float) elapsedFrames / interpolationFramesCount;
-        xRestraint = Mathf.Clamp(xRestraint, -clampX, clampX);
-        yRestraint = Mathf.Clamp(yRestraint, -clampY, clampY);
+        xRestraint = Mathf.Clamp(xRestraint, -posClampX, posClampX);
+        yRestraint = Mathf.Clamp(yRestraint, -posClampY, posClampY);
+
         shipPos = new Vector3(xRestraint, yRestraint, 0f);
         // shipPos = Vector3.Lerp(xyThrow.up, xyThrow.x, interpolationRatio);
         xRestraint += xThrow*moveSpeed*Time.deltaTime;
@@ -65,19 +69,22 @@ public class NewPlayerMovement : MonoBehaviour
 
     void ShipRotation()
     {
+
         float pitchByTransform = transform.localPosition.y * -rotationFactor/2;
         float pitchByControl = yThrow*controlRotationFactor*2;
 
         float rollByTransform = transform.localPosition.x * -rotationFactor;
         float rollByControl = xThrow*controlRotationFactor*2;
         
-        float yawByTransform = transform.localPosition.x * rotationFactor;
-        float yawByControl = xThrow*-controlRotationFactor;
-
+        float yawByTransform = transform.localPosition.x * rotationFactor/2;
+        float yawByControl = xThrow*-controlRotationFactor/2;
 
         pitch = pitchByTransform + pitchByControl;
         roll = rollByTransform + rollByControl;
         yaw = yawByTransform + yawByControl;
+
+        pitch = Mathf.Clamp(pitch, -pitchMinMax, pitchMinMax);
+        roll = Mathf.Clamp(roll, -rollMinMax, rollMinMax);
 
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
