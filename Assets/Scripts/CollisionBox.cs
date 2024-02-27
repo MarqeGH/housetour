@@ -7,19 +7,31 @@ public class CollisionBox : MonoBehaviour
 {
     HitPointManager pHitPoints;
     GameObject player;
-    int playerHitPoints;
+    int damageHitPoints;
+    
+    bool vulnerable = true;
 
 
     void Start()
     {
         player = GameObject.Find("Player");
         pHitPoints = player.GetComponent<HitPointManager>();
-        playerHitPoints = pHitPoints.playerHitPoints;
+        damageHitPoints = pHitPoints.playerHitPoints;
     }
 
-    void OnCollisionEnter(Collision player)
+    void OnTriggerEnter(Collider other)
     {
-        pHitPoints.playerHitPoints -= 1;
-        Debug.Log("You have " + playerHitPoints + " hp left.");
+        if (vulnerable) {
+                damageHitPoints -= 1;
+                vulnerable = !vulnerable;
+                Invoke ("SetVulnerable", 1.5f);
+        }
+        Debug.Log("You have " + damageHitPoints + " hp left.");
+    }
+
+    void SetVulnerable()
+    {
+        vulnerable = !vulnerable;
+
     }
 }
