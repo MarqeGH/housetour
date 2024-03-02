@@ -9,6 +9,7 @@ public class LaserDamage : MonoBehaviour
 
     public float laserDMG = 25f;
     public float rocketDMG = 100f;
+    
     float[] damageSource;
     void Start()
     {

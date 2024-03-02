@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8353568393668368823}
   m_Layer: 0
   m_Name: Pencil Fighter
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +26,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 38.164, y: 3.3657, z: 40.917}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6806, y: 1.6806, z: 1.6806}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5036726764118765668}
@@ -47608,7 +47608,7 @@ GameObject:
   - component: {fileID: 7682873186600399494}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47623,7 +47623,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.62, y: 1.29, z: 5.15}
-  m_LocalScale: {x: 3.095004, y: 1.1008, z: 10.483151}
+  m_LocalScale: {x: 3.756386, y: 1.1008, z: 10.483151}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8353568393668368823}
@@ -47663,3 +47663,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9762ba0ce3b4bb895307fb0a789429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startEnemyHealth: 100
+  deathExplosion: {fileID: 3362727994158651315, guid: 2f462c78e0f0440b19ecc8192ff33a36, type: 3}
+  parent: {fileID: 0}
+  timeTillDestroy: 3
+  pointValue: 1

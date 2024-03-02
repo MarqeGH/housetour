@@ -7,10 +7,15 @@ using UnityEngine.Splines;
 
 public class HitPointManager : MonoBehaviour
 {
+    
+    [SerializeField] GameObject playerExplosion;
+    [SerializeField] float timeToReset = 3f;
+    [SerializeField] Transform parent;
+    public int playerHitPoints = 5;
     Rigidbody rb;
     SplineAnimate splineAnimate;
     NewPlayerMovement newPlayerMovement;
-    public int playerHitPoints = 5;
+    bool isDisabled = false;
 
     void Start()
     {
@@ -23,14 +28,16 @@ public class HitPointManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerHitPoints <= 0)
+        if (playerHitPoints <= 0 && isDisabled == false)
         {
+            isDisabled = true;
             rb.drag = 0.5f;
             rb.useGravity = true;
             rb.isKinematic = false;
             newPlayerMovement.enabled = false;
             splineAnimate.enabled = false;
-            Invoke ("ResetLevel", 3);
+            Invoke ("ResetLevel", timeToReset);
+            Instantiate(playerExplosion, new Vector3(transform.position.x-0.5f, transform.position.y+3f, transform.position.z-5f), Quaternion.identity);
         }
     }
 
