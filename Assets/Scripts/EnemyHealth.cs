@@ -10,7 +10,7 @@ public class EnemyHealth : MonoBehaviour
     
     [SerializeField] float startEnemyHealth = 100f;
     [SerializeField] GameObject deathExplosion;
-    [SerializeField] Transform parent;
+    GameObject parent;
     [SerializeField] float timeTillDestroy = 3f;
     [SerializeField] int pointValue = 1;
     GameObject vfx;
@@ -21,6 +21,7 @@ public class EnemyHealth : MonoBehaviour
     bool isDisabled;
     void Start()
     {
+        parent = GameObject.FindWithTag("Enemy_Instantiated");
         enemyObject = transform.parent.gameObject;
         currentEnemyHealth = startEnemyHealth;
         scoreBoard = FindObjectOfType<ScoreBoard>();
@@ -48,9 +49,15 @@ public class EnemyHealth : MonoBehaviour
     void DeathVFX()
     {
         vfx = Instantiate(deathExplosion, transform.position, Quaternion.identity);
-        vfx.transform.parent = parent;
+        vfx.transform.parent = parent.transform;
         Destroy(vfx, timeTillDestroy);
     }
+    // void HitVFX()
+    // {
+    //     vfx = Instantiate(deathExplosion, transform.position, Quaternion.identity);
+    //     vfx.transform.parent = parent.transform;
+    //     Destroy(vfx, timeTillDestroy);
+    // }
 
     void KillEnemy()
     {
